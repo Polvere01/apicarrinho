@@ -1,4 +1,4 @@
-package br.com.polvere.nucleo;
+package br.com.polvere.domain;
 
 import lombok.*;
 

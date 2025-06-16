@@ -1,9 +1,8 @@
 package br.com.polvere.service.impl;
 
 import br.com.polvere.controle.dto.ItemDto;
-import br.com.polvere.nucleo.Item;
+import br.com.polvere.domain.Item;
 import br.com.polvere.service.ItemService;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

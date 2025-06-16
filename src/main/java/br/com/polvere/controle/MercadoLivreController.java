@@ -1,12 +1,11 @@
 package br.com.polvere.controle;
 
 import br.com.polvere.controle.dto.ItemDto;
-import br.com.polvere.nucleo.Item;
+import br.com.polvere.domain.Item;
 import br.com.polvere.service.ItemService;
-import jakarta.websocket.server.PathParam;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,7 +23,7 @@ public class MercadoLivreController {
     }
 
     @PostMapping("adicionar")
-    public ResponseEntity<String> adicionarItem(@RequestBody ItemDto itemDto){
+    public ResponseEntity<String> adicionarItem(@RequestBody @Valid ItemDto itemDto){
         String idRetornado = itemService.adicionarItem(itemDto);
         return new ResponseEntity<>(idRetornado, HttpStatus.CREATED);
     }
@@ -39,7 +38,6 @@ public class MercadoLivreController {
     public ResponseEntity<String> calcularTotal(){
         return new ResponseEntity<>(itemService.calcularTotal(), HttpStatus.OK);
     }
-
 
     private ItemDto getIemDto(Item item){
         return ItemDto.builder()
